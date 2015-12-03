@@ -28,6 +28,13 @@ with open("mei.xml",'wb') as f:
     _write(f, 'mei meiversion="2.1.1" xml:id="http://www.music-encoding.org/ns/mei"')
     _write(f, header)
     _write(f, 'music')
+    _write(f,'body')
+    _write(f, 'mdiv')
+    _write(f, 'score')
+    _write(f, 'section')
+    _write(f, 'measure')
+    _write(f, 'staff')
+    _write(f, 'layer')
     
     #with open("out.txt", "rb") as fl:
         #data = fl.readlines()
@@ -39,7 +46,13 @@ with open("mei.xml",'wb') as f:
     for da in data["rows"]:
         _write(f, 'note xml:id= "' + da["id"] + '" pnum="'+str(da["value"])+'" dur="1" /')
   
-
+    _write(f, '/layer')
+    _write(f, '/staff')
+    _write(f, '/measure')
+    _write(f, '/section')
+    _write(f, '/score')
+    _write(f, '/mdiv')
+    _write(f, '/body')
     _write(f, "/music")
     _write(f, "/mei")
 f.closed
