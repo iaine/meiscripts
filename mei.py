@@ -37,7 +37,7 @@ with open("mei.xml",'wb') as f:
     #fl.closed
     data = json.load(urllib2.urlopen('http://127.0.0.1:5984/sonify/_design/mei/_view/MEItransform'))
     for da in data["rows"]:
-        _write(f, 'note xml:id= "' + da["id"] + '" pname="'+str(da["value"])+'" dur="1" /')
+        _write(f, 'note xml:id= "' + da["id"] + '" pnum="'+str(da["value"])+'" dur="1" /')
   
 
     _write(f, "/music")
